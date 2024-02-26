@@ -4,7 +4,7 @@
 
 ### Requirements
 
-- Node >= 18
+- Node 18
 - Android NDK 24.0.8215888
   - (optional) exported `ANDROID_NDK_PATH` environment variable
 
