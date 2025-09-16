@@ -26,6 +26,7 @@ jobs:
       module_version: ${{ inputs.module_version }}
       platform: ${{ matrix.platform }}
       arch: ${{ matrix.arch }}
+      patch_file: "CMakeLists.txt.patch"
 
   release:
     if: ${{ inputs.publish_release }}

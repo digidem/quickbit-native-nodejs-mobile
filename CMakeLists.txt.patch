@@ -1,0 +1,16 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -70,0 +71,13 @@ target_include_directories(
++# Fix Android NDK C++ standard library include path
++if(ANDROID)
++  target_include_directories(
++    ${quickbit_native_bare}
++    SYSTEM PRIVATE
++      "${CMAKE_SYSROOT}/usr/include/c++/v1"
++  )
++  target_include_directories(
++    ${quickbit_native_node}
++    SYSTEM PRIVATE
++      "${CMAKE_SYSROOT}/usr/include/c++/v1"
++  )
++endif()
