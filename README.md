@@ -41,10 +41,21 @@ Should be clear enough to follow the [reusable workflow steps](https://github.co
    bare-make install
    ```
 
+## Patches
+
+`quickbit-native` needs a small Android-specific patch to `CMakeLists.txt`.
+Patches live under `patches/` using the `patch-package` filename convention:
+`<module>+<version>.patch`. When bumping to a `quickbit-native` version not
+already covered, copy the existing patch to the new filename (and adjust if
+upstream's `CMakeLists.txt` has changed). The build fails loudly if the
+requested version has no matching patch while others exist, so a forgotten
+rename is caught before the build runs.
+
 ## Creating a release
 
 1. Navigate to the [Generate Prebuilds workflow](https://github.com/digidem/quickbit-native-nodejs-mobile/actions/workflows/prebuilds.yml)
 2. Manually dispatch the worflow with the version you want to build, ensuring that "Publish Release" is checked.
+3. If the target version isn't already in `patches/`, add `patches/quickbit-native+<version>.patch` first.
 
 ## Contributing
 
